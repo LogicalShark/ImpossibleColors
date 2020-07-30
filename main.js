@@ -1,3 +1,4 @@
+//TODO: minigame in chimerical circle
 function CreateBoxes() {
     var num = document.getElementById("numinput").value;
     var lparent = document.getElementById("lcontainer");
