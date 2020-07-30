@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+    <title>Impossible Colors</title>
+  </head>
+  <body>
+    <h1>Impossible Color Viewer</h1>
+    <div class="main-container">
+      <div class="instructions">
+        <h2>Background</h2>
+        <p>
+          Extraspatial colors are visible by crossing your eyes on conflicting colors (e.g. red and green) to see a color which is not just a mix (like brown) but has the properties of both (an impossible red-green). <br><br>
+          Chimerical colors are created by tricking your eyes into percieving impossible colors such as black with impossible saturation (Stygian), brighter than white (Self-Luminous), or more than 100% saturated (Hyperbolic).<br><br>
+          <a href="https://en.wikipedia.org/wiki/Impossible_color">Wikipedia Reference</a>
+        </p>
+      </div>
+      <div class="instructions">
+        <h2>Instructions</h2>
+        <p>
+          Extraspatial - Enter two contrasting hex colors. Cross your eyes to line up the crosses that appear below and try
+          to merge the colors.
+          <br />
+          <br />
+          Chimerial - Enter a target color (also provide a contrast color for hyperbolics). Stare at the generated circle (left) for 20-60 seconds and then look at the solid square (right). The circle's afterimage should have the desired properties.<br /><br />
+          <a href="https://www.w3schools.com/colors/colors_picker.asp"
+            >Get color hex codes here</a
+          >
+        </p>
+      </div>
+      <div class="main-item">
+        <h2>Extraspatial</h2>
+        <p>
+          Color 1: #<input
+            type="text"
+            value="FF0000"
+            id="colorinput1"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <p>
+          Color 2: #<input
+            type="text"
+            value="00FF00"
+            id="colorinput2"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <p>Rows: <input type="text" value="1" id="numinput" size="5" /></p>
+        <h3>Recommended</h3>
+        <p id="ChimericalInfo">
+          Red-Green<br />
+          <p style="color:#FF0000;display:inline;">#FF0000</p>/<p style="color:#00FF00;display:inline;">#00FF00</p><br />
+          Yellow-Blue<br />
+          <p style="color:#FFFF00;display:inline;">#FFFF00</p>/<p style="color:#0000FF;display:inline;">#0000FF</p><br /><br />
+        </p>
+        <button onclick="CreateBoxes()">Generate Image</button>
+      </div>
+      <div class="main-item">
+        <h2>Chimerical</h2>
+        <p>
+          Target: #<input
+            type="text"
+            value="F85700"
+            id="colorinput3"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <p>
+          Contrast: #<input
+            type="text"
+            value="FFB300"
+            id="colorinput3"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <h3>Recommended</h3>
+        <p id="ChimericalInfo">
+          Stygian Blue<br />
+          <p style="color:#0000FF;display:inline;">#0000FF</p><br />
+          Self-Luminous Red<br />
+          <p style="color:#FF0000;display:inline;">#FF0000</p><br />
+          Hyperbolic Orange<br />
+          <p style="color:#00D7FF;display:inline;">#00D7FF</p>/<p style="color:#F85700;display:inline;">#F85700</p><br /><br />
+        </p>
+        <div class="dropdown">
+          <button class="dropbtn">Choose Type</button>
+          <div class="dropdown-content">
+            <a onclick="SelectStygian()">Stygian</a>
+            <a onclick="SelectLuminous()">Self-Luminous</a>
+            <a onclick="SelectHyperbolic()">Hyperbolic</a>
+          </div>
+        </div>
+
+        <!-- 00ff99, f82000
+        f85700, 00d7ff
+        edff00, a200f8
+        rgb(237, 255, 0), rgb(162, 0, 248)
+        100/0/40/0, 0/87/100/3
+        cmyk(0%, 65%, 100%, 3%),cmyk(100%, 16%, 0%, 0%)
+        cmyk(7%, 0%, 100%, 0%), cmyk(35%, 100%, 0%, 3%)
+        0.4333 1 1 - 0.0215 1 .9725
+        0.0585 1 .9725, 0.5261 1 1
+        0.1784 1 1, 0.7755 1 .9725 -->
+      </div>
+    </div>
+    <div class="lr-container">
+      <div class="color-container" id="lcontainer"></div>
+      <div class="color-container" id="rcontainer"></div>
+    </div>
+    <img id="plus1" src="plus.png" />
+    <img id="plus2" src="plus.png" />
+  </body>
+</html>
