@@ -21,17 +21,19 @@
       <div class="instructions">
         <h2>Instructions</h2>
         <p>
-          Extraspatial - Enter two contrasting hex colors. Cross your eyes to line up the crosses that appear below and try
+          Extraspatial - Enter two contrasting hex colors. Cross your eyes to line up the crosses that appear and try
           to merge the colors.
           <br />
           <br />
-          Chimerial - Enter a target color (also provide a contrast color for hyperbolics). Stare at the generated circle (left) for 20-60 seconds and then look at the solid square (right). The circle's afterimage should have the desired properties.<br /><br />
-          <a href="https://www.w3schools.com/colors/colors_picker.asp"
-            >Get color hex codes here</a
-          >
+          Chimerial - Enter a target color (also provide a contrast color for hyperbolics) and choose a type. Stare at the generated circle (left) for 20-60 seconds and then look at the solid square (right). The circle's afterimage should have the desired properties.<br /><br />
+          The images will appear below.<br> 
+          <a href="https://www.w3schools.com/colors/colors_picker.asp">
+          Get color hex codes here
+          </a>
         </p>
       </div>
       <div class="main-item">
+        <div class="main-subitem">
         <h2>Extraspatial</h2>
         <p>
           Color 1: #<input
@@ -53,7 +55,7 @@
         </p>
         <p>Rows: <input type="text" value="1" id="numinput" size="5" /></p>
         <h3>Recommended</h3>
-        <p id="ChimericalInfo">
+        <p id="ExtraspatialInfo">
           Red-Green<br />
           <p style="color:#FF0000;display:inline;">#FF0000</p>/<p style="color:#00FF00;display:inline;">#00FF00</p><br />
           Yellow-Blue<br />
@@ -61,7 +63,7 @@
         </p>
         <button onclick="CreateBoxes()">Generate Image</button>
       </div>
-      <div class="main-item">
+      <div class="main-subitem">
         <h2>Chimerical</h2>
         <p>
           Target: #<input
@@ -98,7 +100,7 @@
             <a onclick="SelectHyperbolic()">Hyperbolic</a>
           </div>
         </div>
-
+</div>
         <!-- 00ff99, f82000
         f85700, 00d7ff
         edff00, a200f8

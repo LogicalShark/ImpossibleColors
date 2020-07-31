@@ -3,9 +3,7 @@ body {
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  padding: 1em;
   text-align: center;
-  margin: auto;
 }
 h2 {
   margin: 20px;
@@ -18,24 +16,30 @@ h3 {
 p {
   margin: 1px;
   padding: 0px;
+  text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
+    1px 1px 0 #333;
 }
 .main-container {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
 }
 .instructions {
-  width: 33%;
+  flex-basis: 400px;
   text-align: left;
   border: 5px solid #fff;
   padding: 5px;
 }
-.main-item {
+.main-subitem {
   border: 5px solid #ffab66;
   padding: 5px;
   margin: 5px;
   padding-top: 0px;
+}
+.main-item {
+  display: flex;
 }
 .lr-container {
   display: flex;
