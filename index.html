@@ -14,8 +14,7 @@
       <p>
         <b>Extraspatial colors</b> are visible by crossing your eyes on
         conflicting colors to reportedly see impossible combinations (e.g.
-        red-green would normally be impossible, unlike red-orange or
-        blue-green).
+        reddish green instead of brown).
         <br />
         <b>Chimerical colors</b> are created by tricking your eyes into
         percieving black with saturation (Stygian), brighter than white
@@ -64,13 +63,13 @@
         <p>Rows: <input type="text" value="1" id="numinput" size="5" /></p>
         <button onclick="createBoxes()">Generate Custom</button>
       </div>
-            <div class="instructions">
+      <div class="instructions">
         <h2>Instructions</h2>
         <p>
           Click on a preset, or enter hex codes to generate a custom image
-          (contrast color is only necessary for hyperbolics).<br /><br />
+          (contrast color is only necessary for hyperbolics). If you have trouble seeing a color try a different preset, some colors are easier to see for some people.<br /><br />
           <a href="https://www.w3schools.com/colors/colors_picker.asp">
-            Get color hex codes here
+            Get custom color codes here
           </a>
         </p>
       </div>
@@ -96,7 +95,7 @@
         </p>
         <h3>Custom</h3>
         <p>
-          Target: #<input
+          Color: #<input
             type="text"
             value="F85700"
             id="colorinput3"
@@ -105,7 +104,7 @@
           />
         </p>
         <p>
-          Contrast: #<input
+          Solid: #<input
             type="text"
             value="FFB300"
             id="colorinput4"
@@ -135,13 +134,13 @@
         0.1784 1 1, 0.7755 1 .9725 -->
     <div class="lr-container" id="boxes">
       <div class="color-container" id="lcontainer"></div>
+      <div class="spacing" id="mcontainer"></div>
       <div class="color-container" id="rcontainer"></div>
     </div>
     <div class="chim-container"></div>
     <img id="hand" src="arrow.png" />
     <img id="plus1" src="plus.png" />
     <img id="plus2" src="plus.png" />
-    <h2>Instructions</h2>
     <p id="lowerInstructions">
       The colors will appear in the squares above.
     </p>

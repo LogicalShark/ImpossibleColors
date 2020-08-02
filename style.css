@@ -16,6 +16,7 @@ h3 {
 p {
   margin: 1px;
   padding: 0px;
+  text-align: left;
 }
 .chim-container {
   height: 100%;
@@ -33,14 +34,13 @@ p {
 }
 .instructions {
   flex-basis: 400px;
-  text-align: left;
+  text-align: center;
   border: 5px solid #fff;
   padding: 5px;
 }
 .background {
   margin: auto;
   width: 600px;
-  text-align: left;
   border: 5px solid #fff;
   padding: 5px;
 }
@@ -58,12 +58,32 @@ p {
   justify-content: center;
   width: 100%;
   height: 500px;
+  margin: 10px;
+}
+.color-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  /* width: 40%; */
+  width: 500px;;
+  border: 2px solid #ffffff;
+  background-color: #bbbbbb;
+}
+.spacing {
+  height: 100%;
+  width: 75px;
+  /* max-width: 50px;; */
+  /* border: 2px solid #ffffff; */
+  background-color: #000000;
 }
 .color-item {
   min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#lowerInstructions {
+  width:400px;
 }
 a:link {
   color: #fff;
@@ -77,18 +97,7 @@ a:hover {
 a:active {
   color: #ff8c2c;
 }
-.color-container {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 50%;
-  border: 2px solid #ffffff;
-  background-color: #bbbbbb;
-}
-/* .color-item {
-  width: 10em;
-  height: 10em;
-} */
+
 #plus1,
 #plus2 {
   z-index: 1;

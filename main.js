@@ -146,7 +146,7 @@ function setChimera(type, color = "", contrast = "") {
             break;
     }
     var inst = document.getElementById("lowerInstructions");
-    inst.innerHTML = "Circle (left) for 20 - 60 seconds. The arrow makes a full rotation every 60s. Then look at the solid square (right), and the afterimage of the circle should appear to be ";
+    inst.innerHTML = "Look at the center of the circle (left) for 20-60 seconds. Then look at the solid square (right) and the afterimage of the circle should appear to be ";
     switch(type) {
         case "Stygian":
             inst.innerHTML += "darker than the surrounding black but still have saturation.";
@@ -160,6 +160,7 @@ function setChimera(type, color = "", contrast = "") {
         default:
             break;
     }
+    inst.innerHTML += " The arrow makes a full rotation every 60s."
     jumpToBoxes();
     handRotation = 0;
 }
