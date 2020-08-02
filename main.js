@@ -1,10 +1,11 @@
-//TODO: minigame in chimerical circle
-function CreateBoxes() {
+function createBoxes(color1 = "", color2 = "") {
     var num = document.getElementById("numinput").value;
     var lparent = document.getElementById("lcontainer");
     var rparent = document.getElementById("rcontainer");
     document.body.appendChild(document.getElementById("plus1"));
     document.body.appendChild(document.getElementById("plus2"));
+    document.body.appendChild(document.getElementById("hand"));
+    document.getElementById("hand").style.display = "none";
     lparent.innerHTML = "";
     rparent.innerHTML = "";
     var col = "l";
@@ -64,12 +65,12 @@ function CreateBoxes() {
     document.getElementById("plus2").style.display = "inline";
     lparent.childNodes[center].childNodes[center].appendChild(document.getElementById("plus1"));
     rparent.childNodes[center].childNodes[center].appendChild(document.getElementById("plus2"));
-    SetColors();
-}
-
-function SetColors() {
-    var color1 = processColor(document.getElementById("colorinput1").value);
-    var color2 = processColor(document.getElementById("colorinput2").value);
+    if(color1 == "") {
+        color1 = processColor(document.getElementById("colorinput1").value);
+    }
+    if(color2 == "") {
+        color2 = processColor(document.getElementById("colorinput2").value);
+    }
     var elements1 = document.querySelectorAll('.lcolor');
     for(var i = 0; i < elements1.length; i++) {
         elements1[i].style = "background-color:#" + color1 + ";";
@@ -78,23 +79,44 @@ function SetColors() {
     for(var i = 0; i < elements2.length; i++) {
         elements2[i].style = "background-color:#" + color2 + ";";
     }
+    var inst = document.getElementById("lowerInstructions");
+    inst.innerHTML = "Cross your eyes to merge the colors (try to line up the crosses). Scroll back up if you want to choose new colors.";
+    jumpToBoxes();
+}
+function loadPreset(name) {
+    switch(name) {
+        case "RG":
+            createBoxes("FF0000", "00FF00");
+            break;
+        case "YB":
+            createBoxes("FFFF00", "0000FF");
+            break;
+        case "StB":
+            setChimera("Stygian", "0000FF");
+            break;
+        case "SlR":
+            setChimera("Luminous", "FF0000");
+            break;
+        case "HbO":
+            setChimera("Hyperbolic", "F85700", "00D7FF");
+            break;
+        default:
+            break;
+    }
 }
 
-function SelectStygian() {
-    SetChimera("Stygian");
-}
-function SelectLuminous() {
-    SetChimera("Luminous");
-}
-function SelectHyperbolic() {
-    SetChimera("Hyperbolic");
-}
-function SetChimera(type) {
+function setChimera(type, color = "", contrast = "") {
     var lparent = document.getElementById("lcontainer");
     var rparent = document.getElementById("rcontainer");
-    var color = processColor(document.getElementById("colorinput3").value);
+    if(color == "") {
+        color = processColor(document.getElementById("colorinput3").value);
+    }
+    if(contrast == "") {
+        contrast = processColor(document.getElementById("colorinput4").value);
+    }
     document.body.appendChild(document.getElementById("plus1"));
     document.body.appendChild(document.getElementById("plus2"));
+    document.body.appendChild(document.getElementById("hand"));
     document.getElementById("plus1").style.display = "none";
     document.getElementById("plus2").style.display = "none";
     lparent.innerHTML = "";
@@ -104,6 +126,8 @@ function SetChimera(type) {
     dot.style.backgroundColor = invertColor(color, false);
     lparent.style.backgroundColor = "#bbbbbb"
     lparent.appendChild(dot);
+    document.getElementById("hand").style.display = "inline";
+    dot.appendChild(document.getElementById("hand"));
     switch(type) {
         case "Stygian":
             rparent.style.backgroundColor = "#000000";
@@ -113,11 +137,44 @@ function SetChimera(type) {
             break;
         case "Hyperbolic":
             rparent.style.backgroundColor = "#" + color;
+            dot.style.backgroundColor = "#" + contrast;
             break;
         default:
             break;
     }
+    var inst = document.getElementById("lowerInstructions");
+    inst.innerHTML = "Circle (left) for 20 - 60 seconds. The arrow makes a full rotation every 60s. Then look at the solid square (right), and the afterimage of the circle should appear to be ";
+    switch(type) {
+        case "Stygian":
+            inst.innerHTML += "darker than the surrounding black but still have saturation.";
+            break;
+        case "Luminous":
+            inst.innerHTML += "lighter than the surrounding white but still have saturation.";
+            break;
+        case "Hyperbolic":
+            inst.innerHTML += "more saturated than the surrounding color, which already has 100% saturation.";
+            break;
+        default:
+            break;
+    }
+    asyncRotate(0);
+    jumpToBoxes();
 }
+function tick(r) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            var hand = document.getElementById("hand");
+            hand.style.transform = "rotate(" + r + "deg)";
+            resolve();
+        }, 500);
+    });
+}
+
+async function asyncRotate(r) {
+    const x = await tick(r);
+    asyncRotate(r+3);
+}
+
 function processColor(hex) {
     hex = hex.trim();
     if(hex.indexOf('#') === 0) {
@@ -159,4 +216,8 @@ function padZero(str, len) {
     len = len || 2;
     var zeros = new Array(len).join('0');
     return (zeros + str).slice(-len);
+}
+
+function jumpToBoxes() {
+    window.location = ("" + window.location).replace(/#[A-Za-z0-9_]*$/, '') + "#boxes"
 }
