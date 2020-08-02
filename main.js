@@ -1,3 +1,6 @@
+var handRotation = 0;
+asyncRotate();
+
 function createBoxes(color1 = "", color2 = "") {
     var num = document.getElementById("numinput").value;
     var lparent = document.getElementById("lcontainer");
@@ -157,22 +160,23 @@ function setChimera(type, color = "", contrast = "") {
         default:
             break;
     }
-    asyncRotate(0);
     jumpToBoxes();
+    handRotation = 0;
 }
-function tick(r) {
+function tick() {
     return new Promise(resolve => {
         setTimeout(() => {
             var hand = document.getElementById("hand");
-            hand.style.transform = "rotate(" + r + "deg)";
+            hand.style.transform = "rotate(" + handRotation + "deg)";
             resolve();
         }, 500);
     });
 }
 
-async function asyncRotate(r) {
-    const x = await tick(r);
-    asyncRotate(r+3);
+async function asyncRotate() {
+    handRotation += 3;
+    await tick();
+    asyncRotate();
 }
 
 function processColor(hex) {
