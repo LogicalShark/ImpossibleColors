@@ -16,8 +16,6 @@ h3 {
 p {
   margin: 1px;
   padding: 0px;
-  text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333,
-    1px 1px 0 #333;
 }
 .chim-container {
   height: 100%;
@@ -39,14 +37,21 @@ p {
   border: 5px solid #fff;
   padding: 5px;
 }
+.background {
+  margin: auto;
+  width: 600px;
+  text-align: left;
+  border: 5px solid #fff;
+  padding: 5px;
+}
 .main-subitem {
   border: 5px solid #ffab66;
   padding: 5px;
   margin: 5px;
   padding-top: 0px;
-}
-.main-item {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .lr-container {
   display: flex;
@@ -104,11 +109,16 @@ button,
 .dropbtn {
   background-color: #ffffff;
   color: #000000;
-  padding: 16px;
+  padding: 10px;
   font-size: 1.25em;
   border: 2px solid black;
+  width: 100%;
 }
-
+.preset {
+  /* -webkit-text-stroke: 1px #000; */
+  text-shadow: -1px 1px 1px #000, 1px 1px 1px #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;

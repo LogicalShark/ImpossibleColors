@@ -9,127 +9,121 @@
   </head>
   <body>
     <h1>Impossible Color Viewer</h1>
+    <div class="background">
+      <h2>Background</h2>
+      <p>
+        <b>Extraspatial colors</b> are visible by crossing your eyes on
+        conflicting colors to reportedly see impossible combinations (e.g.
+        red-green would normally be impossible, unlike red-orange or
+        blue-green).
+        <br />
+        <b>Chimerical colors</b> are created by tricking your eyes into
+        percieving black with saturation (Stygian), brighter than white
+        (Self-Luminous), or more than 100% saturation (Hyperbolic).<br /><br />
+        <a href="https://en.wikipedia.org/wiki/Impossible_color"
+          >Wikipedia reference for more detail</a
+        ><br />
+        Created by <a href="https://logicalshark.github.io">Marcus Alder</a>
+      </p>
+    </div>
     <div class="main-container">
-      <div class="instructions">
-        <h2>Background</h2>
-        <p>
-          Extraspatial colors are visible by crossing your eyes on conflicting
-          colors (e.g. red and green) to see a color which is not just a mix
-          (like brown) but has the properties of both (an impossible red-green).
-          <br /><br />
-          Chimerical colors are created by tricking your eyes into percieving
-          impossible colors such as black with impossible saturation (Stygian),
-          brighter than white (Self-Luminous), or more than 100% saturated
-          (Hyperbolic).<br /><br />
-          <a href="https://en.wikipedia.org/wiki/Impossible_color"
-            >Wikipedia Reference</a
+      <div class="main-subitem">
+        <h2>Try Extraspatial</h2>
+        <h3>Presets</h3>
+        <p id="ExtraspatialInfo">
+          <button onclick="loadPreset('RG')" class="preset">
+            <p style="color: #ff0000; display: inline;">Red</p>
+            /
+            <p style="color: #00ff00; display: inline;">Green</p></button
           ><br />
-          Created by <a href="https://logicalshark.github.io">Marcus Alder</a>
+          <button  class="preset" onclick="loadPreset('YB')">
+            <p style="color: #ffff00; display: inline;">Yellow</p>
+            /
+            <p style="color: #0000ff; display: inline;">Blue</p></button
+          ><br /><br />
         </p>
+        <h3>Custom</h3>
+        <p>
+          Color 1: #<input
+            type="text"
+            value="FF0000"
+            id="colorinput1"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <p>
+          Color 2: #<input
+            type="text"
+            value="00FF00"
+            id="colorinput2"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <p>Rows: <input type="text" value="1" id="numinput" size="5" /></p>
+        <button onclick="createBoxes()">Generate Custom</button>
       </div>
-      <div class="instructions">
+            <div class="instructions">
         <h2>Instructions</h2>
         <p>
-          Extraspatial - Click on a preset, or enter hex codes for two
-          contrasting colors or use a preset. Cross your eyes to line up the
-          crosses that appear and try to merge the colors.
-          <br />
-          <br />
-          Chimerial - Click on a preset, or enter a custom target color (also
-          provide a contrast color for hyperbolics) and choose a type.<br /><br />
+          Click on a preset, or enter hex codes to generate a custom image
+          (contrast color is only necessary for hyperbolics).<br /><br />
           <a href="https://www.w3schools.com/colors/colors_picker.asp">
             Get color hex codes here
           </a>
         </p>
       </div>
-      <div class="main-item">
-        <div class="main-subitem">
-          <h2>Try Extraspatial</h2>
-          <h3>Presets</h3>
-          <p id="ExtraspatialInfo">
-            <button onclick="loadPreset('RG')">
-              <p style="color: #ff0000; display: inline;">Red</p>
-              /
-              <p style="color: #00ff00; display: inline;">Green</p></button
-            ><br />
-            <button onclick="loadPreset('YB')">
-              <p style="color: #ffff00; display: inline;">Yellow</p>
-              /
-              <p style="color: #0000ff; display: inline;">Blue</p></button
-            ><br /><br />
-          </p>
-          <h3>Custom</h3>
-          <p>
-            Color 1: #<input
-              type="text"
-              value="FF0000"
-              id="colorinput1"
-              size="5"
-              maxlength="7"
-            />
-          </p>
-          <p>
-            Color 2: #<input
-              type="text"
-              value="00FF00"
-              id="colorinput2"
-              size="5"
-              maxlength="7"
-            />
-          </p>
-          <p>Rows: <input type="text" value="1" id="numinput" size="5" /></p>
-          <button onclick="createBoxes()">Generate Custom</button>
-        </div>
-        <div class="main-subitem">
-          <h2>Try Chimerical</h2>
-          <h3>Presets</h3>
-          <p id="ChimericalInfo">
-            <button onclick="loadPreset('StB')">
-              <p style="color: #0000ff; display: inline;">
-                Stygian Blue
-              </p></button
-            ><br />
-            <button onclick="loadPreset('SlR')">
-              <p style="color: #ff0000; display: inline;">
-                Self-Luminous Red
-              </p></button
-            ><br />
-            <button onclick="loadPreset('HbO')">
-              <p style="color: #f85700; display: inline;">
-                Hyperbolic Orange
-              </p></button
-            ><br /><br />
-          </p>
-          <h3>Custom</h3>
-          <p>
-            Target: #<input
-              type="text"
-              value="F85700"
-              id="colorinput3"
-              size="5"
-              maxlength="7"
-            />
-          </p>
-          <p>
-            Contrast: #<input
-              type="text"
-              value="FFB300"
-              id="colorinput4"
-              size="5"
-              maxlength="7"
-            />
-          </p>
+      <div class="main-subitem">
+        <h2>Try Chimerical</h2>
+        <h3>Presets</h3>
+        <p id="ChimericalInfo">
+          <button  class="preset" onclick="loadPreset('StB')">
+            <p style="color: #0000ff; display: inline;">
+              Stygian Blue
+            </p></button
+          ><br />
+          <button  class="preset" onclick="loadPreset('SlR')">
+            <p style="color: #ff0000; display: inline;">
+              Self-Luminous Red
+            </p></button
+          ><br />
+          <button  class="preset" onclick="loadPreset('HbO')">
+            <p style="color: #f85700; display: inline;">
+              Hyperbolic Orange
+            </p></button
+          ><br /><br />
+        </p>
+        <h3>Custom</h3>
+        <p>
+          Target: #<input
+            type="text"
+            value="F85700"
+            id="colorinput3"
+            size="5"
+            maxlength="7"
+          />
+        </p>
+        <p>
+          Contrast: #<input
+            type="text"
+            value="FFB300"
+            id="colorinput4"
+            size="5"
+            maxlength="7"
+          />
+        </p>
 
-          <div class="dropdown">
-            <button class="dropbtn">Generate Custom</button>
-            <div class="dropdown-content">
-              <a onclick="setChimera('Stygian')">Stygian</a>
-              <a onclick="setChimera('Luminous')">Self-Luminous</a>
-              <a onclick="setChimera('Hyperbolic')">Hyperbolic</a>
-            </div>
+        <div class="dropdown">
+          <button class="dropbtn">Generate Custom</button>
+          <div class="dropdown-content">
+            <a onclick="setChimera('Stygian')">Stygian</a>
+            <a onclick="setChimera('Luminous')">Self-Luminous</a>
+            <a onclick="setChimera('Hyperbolic')">Hyperbolic</a>
           </div>
         </div>
-        <!-- 00ff99, f82000
+      </div>
+      <!-- 00ff99, f82000
         f85700, 00d7ff
         edff00, a200f8
         rgb(237, 255, 0), rgb(162, 0, 248)
@@ -139,8 +133,6 @@
         0.4333 1 1 - 0.0215 1 .9725
         0.0585 1 .9725, 0.5261 1 1
         0.1784 1 1, 0.7755 1 .9725 -->
-      </div>
-    </div>
     <div class="lr-container" id="boxes">
       <div class="color-container" id="lcontainer"></div>
       <div class="color-container" id="rcontainer"></div>
