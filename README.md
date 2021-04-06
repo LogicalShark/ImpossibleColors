@@ -1,5 +1,1 @@
-# ImpossibleColor
-
-Generates impossible color visualizations
-
-Based on https://en.wikipedia.org/wiki/Impossible_color
+# Website location has changed, go to https://logicalshark.com/impossiblecolors
