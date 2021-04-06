@@ -1,1 +1,1 @@
-# Website location has changed, go to https://logicalshark.com/impossiblecolors
+### Website location has changed, go [here](https://logicalshark.com/impossiblecolors)
